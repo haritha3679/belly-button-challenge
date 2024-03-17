@@ -3,7 +3,7 @@ function init() {
   dropdownMenu = d3.select("#selDataset");
 
   // Use the list of sample names to populate the select options
-  d3.json("samples.json").then((data) => {
+  d3.json("https://static.bc-edx.com/data/dl-1-2/m14/lms/starter/samples.json").then((data) => {
     sampleNames = data.names;
 
     sampleNames.forEach((sample) => {
@@ -32,7 +32,7 @@ function optionChanged(newSample) {
 
 // Demographics Panel 
 function DisplaySeldata(sample) {
-d3.json("samples.json").then((data) => {
+d3.json("https://static.bc-edx.com/data/dl-1-2/m14/lms/starter/samples.json").then((data) => {
   seldata = data.metadata;
   // Filter the data for the object with the desired sample number
   resultArray = seldata.filter(sampleObj => sampleObj.id == sample);
@@ -58,7 +58,7 @@ d3.json("samples.json").then((data) => {
 
 function plotCharts(sample) {
 // Use d3.json to load and retrieve the samples.json file 
-d3.json("samples.json").then((data) => {
+d3.json("https://static.bc-edx.com/data/dl-1-2/m14/lms/starter/samples.json").then((data) => {
   //Create a variable that holds the samples array. 
   sampleArray = data.samples;
      

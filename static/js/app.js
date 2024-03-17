@@ -1,6 +1,10 @@
+<<<<<<< HEAD
 function init() {
   // Grab a reference to the dropdown select element
   dropdownMenu = d3.select("#selDataset");
+=======
+dropdownMenu = d3.select("#selDataset");
+>>>>>>> 4efc38305582ead38e768f0dc69a80ac66cb0f14
 
   // Use the list of sample names to populate the select options
   d3.json("samples.json").then((data) => {
@@ -18,6 +22,7 @@ function init() {
    plotCharts(Sample);
     DisplaySeldata(Sample);
   });
+<<<<<<< HEAD
 };
 
 // Initialize the dashboard
@@ -58,12 +63,19 @@ d3.json("samples.json").then((data) => {
 
 function plotCharts(sample) {
 // Use d3.json to load and retrieve the samples.json file 
+=======
+  
+>>>>>>> 4efc38305582ead38e768f0dc69a80ac66cb0f14
 d3.json("samples.json").then((data) => {
   //Create a variable that holds the samples array. 
   sampleArray = data.samples;
      
   //Create a variable that filters the samples passed to function.
+<<<<<<< HEAD
   chart = sampleArray.filter(sampleObj => sampleObj.id == sample);
+=======
+  chart = sampleArray.filter(sampleObj => sampleObj.id == 940);
+>>>>>>> 4efc38305582ead38e768f0dc69a80ac66cb0f14
   
   // Create a variable that holds the sample in the array.
   ArraySample = chart[0];
@@ -97,6 +109,7 @@ d3.json("samples.json").then((data) => {
        };
   //Use Plotly to plot the data with the layout. 
   Plotly.newPlot('bar',barData, barLayout);
+<<<<<<< HEAD
   
   // Create the trace for the bubble chart. uses sample alues for marker size 
 
@@ -163,3 +176,6 @@ d3.json("samples.json").then((data) => {
   
 });
 };
+=======
+});
+>>>>>>> 4efc38305582ead38e768f0dc69a80ac66cb0f14
