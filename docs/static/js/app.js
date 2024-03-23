@@ -1,5 +1,5 @@
 function init() {
-  // Grab a reference to the dropdown select element
+  // Get the reference to the dropdown select element
   dropdownMenu = d3.select("#selDataset");
 
   // Use the list of sample names to populate the select options
@@ -35,7 +35,7 @@ function DisplaySeldata(sample) {
 d3.json("https://static.bc-edx.com/data/dl-1-2/m14/lms/starter/samples.json").then((data) => {
   seldata = data.metadata;
   // Filter the data for the object with the desired sample number
-  resultArray = seldata.filter(sampleObj => sampleObj.id == sample);
+  resultArray = seldata.filter(s => s.id == sample);
   result = resultArray[0];
   // Use d3 to select the panel with id of `#sample-metadata`
   selectedData = d3.select("#sample-metadata");
@@ -63,7 +63,7 @@ d3.json("https://static.bc-edx.com/data/dl-1-2/m14/lms/starter/samples.json").th
   sampleArray = data.samples;
      
   //Create a variable that filters the samples passed to function.
-  chart = sampleArray.filter(sampleObj => sampleObj.id == sample);
+  chart = sampleArray.filter(j => j.id == sample);
   
   // Create a variable that holds the sample in the array.
   ArraySample = chart[0];
@@ -76,7 +76,7 @@ d3.json("https://static.bc-edx.com/data/dl-1-2/m14/lms/starter/samples.json").th
   
 
 
-  yticks = Ids.slice(0,10).map(OTU => "OTU " + OTU).reverse();
+  yticks = Ids.slice(0,10).map(x => "OTU " + x).reverse();
 
     //Create the trace for the bar chart. 
   trace = {
@@ -108,7 +108,7 @@ d3.json("https://static.bc-edx.com/data/dl-1-2/m14/lms/starter/samples.json").th
     marker: {
       color: Ids,
       size: sampleValues,
-      colorscale: "Earth"
+      colorscale: "plot"
     }
   };
 
@@ -129,7 +129,7 @@ d3.json("https://static.bc-edx.com/data/dl-1-2/m14/lms/starter/samples.json").th
 
 
   metadata = data.metadata;
-  resultArray = metadata.filter(sampleObj => sampleObj.id == sample);
+  resultArray = metadata.filter(O => O.id == sample);
   result = resultArray[0];
   wFreq = result.wfreq;
   console.log(wFreq);
@@ -149,7 +149,7 @@ d3.json("https://static.bc-edx.com/data/dl-1-2/m14/lms/starter/samples.json").th
       ]
     }
   };
-  var gaugeData = [trace3];
+ gaugeData = [trace3];
 
   // Create the layout for the gauge chart.
   var gaugeLayout = { 
@@ -157,9 +157,11 @@ d3.json("https://static.bc-edx.com/data/dl-1-2/m14/lms/starter/samples.json").th
     height: 400, 
     margin: { t: 0, b: 0 } };
 
+    
   // Use Plotly to plot the gauge data and layout.
   Plotly.newPlot('gauge',gaugeData, gaugeLayout);
  
   
 });
 };
+
